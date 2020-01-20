@@ -257,7 +257,7 @@ extern "C" {
     ///
     /// [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
     #[wasm_bindgen(method)]
-    pub fn join(this: &Array, delimiter: &str) -> JsString;
+    pub fn join(this: &Array, delimiter: &JsString) -> JsString;
 
     /// The `lastIndexOf()` method returns the last index at which a given element
     /// can be found in the array, or -1 if it is not present. The array is
@@ -3889,7 +3889,11 @@ extern "C" {
     ) -> JsString;
 
     #[wasm_bindgen(method, js_class = "String", js_name = replace)]
-    pub fn replace_by_pattern(this: &JsString, pattern: &RegExp, replacement: &str) -> JsString;
+    pub fn replace_by_pattern(
+        this: &JsString,
+        pattern: &RegExp,
+        replacement: &JsString,
+    ) -> JsString;
 
     /// [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
     #[wasm_bindgen(method, js_class = "String", js_name = replace)]
@@ -3938,7 +3942,7 @@ extern "C" {
     ///
     /// [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
     #[wasm_bindgen(method, js_class = "String", js_name = startsWith)]
-    pub fn starts_with(this: &JsString, search_string: &str, position: u32) -> bool;
+    pub fn starts_with(this: &JsString, search_string: &JsString, position: u32) -> bool;
 
     /// The `substring()` method returns the part of the string between the
     /// start and end indexes, or to the end of the string.
